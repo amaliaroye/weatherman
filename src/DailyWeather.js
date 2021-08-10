@@ -26,9 +26,13 @@ export default function DailyWeather({ weatherData }) {
           }
 
           return (
-            <li key={dt}>
-              {weekday()} {weather[0].main} {Math.round(temp.max)}°
-              {Math.round(temp.min)}°
+            <li key={dt} className='inline-display'>
+              <div className='weekday'>{weekday()}</div>
+              <div>{weather[0].main}</div>
+              <div className='temp-min-max'>
+                <span>{Math.round(temp.max)}</span>
+                <span>{Math.round(temp.min)}</span>
+              </div>
             </li>
           )
         })}

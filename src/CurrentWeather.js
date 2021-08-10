@@ -17,14 +17,20 @@ function CurrentWeather({ weatherData, location }) {
   const weekday = daysOfTheWeek[date.getUTCDay()]
 
   return (
-    <div>
+    <div className='current-weather'>
       <h2>{location.name}</h2>
       <h3>{weather[0].main}</h3>
       <h1>
-        {Math.round(weatherData.current.temp)}°{unit.temp}
+        {Math.round(weatherData.current.temp)}
+        {unit.temp}
       </h1>
-      {weekday} TODAY
-      {Math.round(temp.max)}° {Math.round(temp.min)}°
+      {/* <div className='inline-display'>
+        <div className='weekday'>{weekday}</div>
+        <div className='temp-min-max'>
+          <span>{Math.round(temp.max)}</span>
+          <span>{Math.round(temp.min)}</span>
+        </div>
+      </div> */}
     </div>
   )
 }
