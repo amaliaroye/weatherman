@@ -8,7 +8,7 @@ export default function UpdateLocation({ setLocation }) {
     event.preventDefault()
     try {
       const response = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${process.env.REACT_APP_API_KEY}`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${process.env.REACT_APP_API_KEY}`
       )
       await setResults(await response.json())
     } catch (error) {
