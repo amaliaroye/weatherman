@@ -1,13 +1,17 @@
 import React, { useState, useContext, useEffect } from 'react'
-import UpdateLocation from './UpdateLocation'
+import UpdateLocation from './components/UpdateLocation'
 import { UnitContext } from './index.js'
-import CurrentWeather from './CurrentWeather'
-import HourlyWeather from './HourlyWeather'
-import DailyWeather from './DailyWeather'
+import CurrentWeather from './components/CurrentWeather'
+import HourlyWeather from './components/HourlyWeather'
+import DailyWeather from './components/DailyWeather'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import DetailedView from './components/DetailedView'
 
 export default function App() {
   const [location, setLocation] = useState(null)
   const [weatherData, setWeatherData] = useState(null)
+  const [showDetails, setShowDetails] = useState(false)
 
   const { type } = useContext(UnitContext)
 
@@ -25,15 +29,25 @@ export default function App() {
 
   return (
     <main>
+      <Header />
       {location && weatherData ? (
-        <div>
-          <CurrentWeather location={location} weatherData={weatherData} />
-          <HourlyWeather weatherData={weatherData} />
-          <DailyWeather weatherData={weatherData} />
-        </div>
+        showDetails ? (
+          <DetailedView weatherData={weatherData} location={location} />
+        ) : (
+          <div>
+            <CurrentWeather location={location} weatherData={weatherData} />
+            <HourlyWeather weatherData={weatherData} />
+            <DailyWeather weatherData={weatherData} />
+          </div>
+        )
       ) : (
         <UpdateLocation setLocation={setLocation} />
       )}
+      <Footer
+        setLocation={setLocation}
+        setShowDetails={setShowDetails}
+        showDetails={showDetails}
+      />
     </main>
   )
 }

@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+$palewhite: rgba(255, 255, 255, 0.2);
+$mutedwhite: rgba(255, 255, 255, 0.5);
+$blue: #4398c2;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  overflow: hidden;
+  background-color: #3a3a3a;
+}
+
+main {
+  background-color: $blue;
+  position: relative;
+  width: 400px;
+  height: 700px;
+  margin: 3rem;
+  padding: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block-end: 0;
+  margin-block-start: 0;
+  font-weight: 100;
+}
+
+h1 {
+  font-size: 6rem;
+  margin: 1.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-top: 1rem;
+}
+p {
+  font-weight: 300;
+}
+
+.current-weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.temp-min {
+  margin: 0.5rem;
+  color: $mutedwhite;
+}
+.temp-max {
+  margin: 0.5rem;
+}
+
+ul {
+  list-style-type: none;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  padding-inline-start: 0;
+}
+
+.inline-display {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+.weekday {
+  width: 5rem;
+  text-align: left;
+}
+
+input {
+  background-color: $mutedwhite;
+  padding: 0.4em;
+  border: none;
+  height: 2rem;
+  margin: 2rem 0;
+  &:focus {
+    outline: none;
+  }
+}
+
+button {
+  height: 2rem;
+  padding: 0 1rem;
+  border: none;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 0.1rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid $palewhite;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.icon {
+  margin: 0 1rem;
+  color: $mutedwhite;
+  &:hover {
+    color: white;
+  }
+}
+
+.hourly-weather {
+  display: flex;
+  overflow: scroll;
+  border-top: 1px solid $palewhite;
+  border-bottom: 1px solid $palewhite;
+  width: 100;
+  margin-top: 0.1rem;
+  padding-top: 0.3rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $palewhite;
+  &:hover {
+    background-color: white;
+  }
+}
+
+.hourly-card {
+  padding: 0.2rem 0.5rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: flex-end;
+  > .weather-icon {
+    padding-bottom: 0.2rem;
+  }
+}
+
+.hourly-time {
+  font-size: 0.7rem;
+  white-space: nowrap;
+  padding: 0.2rem 0.1rem 0;
+  justify-self: start;
+}
+
+.weekday-today {
+  padding: 0 1rem;
+}
+
+.hourly-precipitation {
+  font-size: 0.8rem;
+  color: $mutedwhite;
+  padding: 0.2rem 0;
+}
+
+.hourly-temp {
+  padding: 0.2rem 0;
+}

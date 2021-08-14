@@ -19,6 +19,7 @@ export default function UpdateLocation({ setLocation }) {
   return (
     <div>
       <form onSubmit={searchLocation}>
+        <h2>Search your location to get weather data!</h2>
         <input
           value={query}
           type='text'
@@ -27,6 +28,7 @@ export default function UpdateLocation({ setLocation }) {
         />
         <button type='submit'>Search</button>
       </form>
+
       <ul>
         {results &&
           results.map((location, index) => {
