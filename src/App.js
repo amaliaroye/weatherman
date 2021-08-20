@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import UpdateLocation from './components/UpdateLocation'
-import { UnitContext } from './index.js'
+import { UnitContext, UnitProvider } from './UnitContext'
 import CurrentWeather from './components/CurrentWeather'
 import HourlyWeather from './components/HourlyWeather'
 import DailyWeather from './components/DailyWeather'
@@ -13,19 +13,19 @@ export default function App() {
   const [weatherData, setWeatherData] = useState(null)
   const [showDetails, setShowDetails] = useState(false)
 
-  const { type } = useContext(UnitContext)
+  const { units } = useContext(UnitContext)
 
   useEffect(() => {
     if (!location) return
 
     async function fetchWeatherData() {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&limit=5&exclude=minutely&units=${type}&appid=${process.env.REACT_APP_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&limit=5&exclude=minutely&units=${units.type}&appid=${process.env.REACT_APP_API_KEY}`
       )
       setWeatherData(await response.json())
     }
     fetchWeatherData()
-  }, [location, type])
+  }, [location, units.type])
 
   return (
     <main>

@@ -2,24 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import './styles.scss'
-
-const units = {
-  imperial: {
-    type: 'imperial',
-    temp: 'F',
-  },
-  metric: {
-    type: 'metric',
-    temp: 'C',
-  },
-}
-export const UnitContext = React.createContext(units.imperial)
+import { UnitProvider } from './UnitContext'
 
 ReactDOM.render(
   <React.StrictMode>
-    <UnitContext.Provider value={units.imperial}>
+    <UnitProvider>
       <App />
-    </UnitContext.Provider>
+    </UnitProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )

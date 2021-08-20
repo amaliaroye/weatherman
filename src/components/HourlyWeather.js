@@ -22,7 +22,7 @@ function HourlyWeather({ weatherData }) {
           <div key={dt} className='hourly-card'>
             <p className='hourly-time'>{index === 0 ? 'Now' : time}</p>
             <p className='hourly-precipitation'>
-              {precipitation > 2 ? precipitation * 10 + '%' : '.'}
+              {precipitation > 2 ? precipitation * 10 + '%' : ''}
             </p>
             <WeatherIcon className='weather-icon' condition={weather[0].main} />
             <p className='hourly-temp'>{Math.round(temp)}</p>
